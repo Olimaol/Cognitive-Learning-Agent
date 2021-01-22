@@ -1,0 +1,28 @@
+# Data Matrices
+*.np[yz]
+*.mat
+*.data
+*.hdf5
+
+# Log files
+*.log
+
+# Specific Folders
+tex/
+results/
+*annarchy*/
+*data*/
+
+# Everything containing "_old"
+*_old*
+
+# XML or GML Files
+*.[gx]ml
+
+# Auto-generated files
+*.py[cod]
+*.orig
+.spyproject
+*.ipynb*
+*fertig.txt
+*zeit.txt
