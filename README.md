@@ -1,6 +1,8 @@
 # Cognitive Learning Agent
 
-Source code of the cognitive learning agent for emergent attention from basal ganglia onto the visual system from Maith, Schwarz & Hamker (2021).
+[![DOI](https://zenodo.org/badge/331862949.svg)](https://zenodo.org/badge/latestdoi/331862949)
+
+Source code of the cognitive learning agent for emergent attention from basal ganglia onto the visual system from *[Maith, Schwarz & Hamker (2021)](https://doi.org/10.1016/j.neunet.2021.07.008)*.
 
 ## Authors:
 
