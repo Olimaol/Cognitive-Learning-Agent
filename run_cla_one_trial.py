@@ -17,8 +17,8 @@ from parameters import params
 from changed_val import changeParams, changed
 from timeit import default_timer as timer
 SIMULATIONSSTART=timer()
-simID=sys.argv[1]
-trainStimID=int(sys.argv[2])# 0-t1, 1-t1rev
+simID=0#sys.argv[1]
+trainStimID=0#int(sys.argv[2])# 0-t1, 1-t1rev
 
 MaxPooling = ann.Synapse(
     psp = "w * pre.r",
