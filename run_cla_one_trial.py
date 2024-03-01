@@ -10,7 +10,7 @@ import numpy as np
 np.random.seed()
 import itertools
 
-from Network_Visual import V1, V4L23, V4L4, FEFv, FEFvm, FEFm, AuxE
+from Network_Visual import V1, V4L23, V4L4, FEFv, FEFvm, FEFm, AuxE, StandardSynapse
 from Network_BG import IT, PFC, StrD1, StrD2, PPTN, STN, GPe, SNr, MD, StrThal, ITStrD1, ITStrD2, SNc, DAPrediction, StrD1StrD1, StrD2StrD2, STNSTN, StrD1SNr, ITSTN, StrD2GPe, STNSNr, SNrSNr, StrThalGPe, StrThalSNr, MDStrThal, SNrMD, ITPFC, VAPFC, PFCPFC, GPeSNr, StrThalStrThal, PFCMD, StrD1SNc
 from Connections import one_to_dim, dim_to_one
 from parameters import params

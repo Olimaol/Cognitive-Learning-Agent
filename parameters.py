@@ -8,7 +8,7 @@ params = {}
 params['num_threads'] = 1
 ### Basal Ganglia Parameters
 params['dim_SN'] = 1
-params['dim_PFC'] = 24
+params['dim_PFC'] = 16
 params['dim_IT'] = params['dim_PFC']
 params['dim_BG'] = params['dim_PFC']
 params['dim_STR'] = (5, 5)
@@ -125,6 +125,6 @@ params['x_max']=41
 params['y_max']=31
 params['num_lines']=9
 params['border']=3
-params['possibleOr']=list(range(0,346,15))#[10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85]
+params['possibleOr']=[10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85]
 params['phi']=np.random.choice(params['possibleOr'],params['num_lines'])
 params['phi']=np.array([50,50,50,50,50,50,50,50,55])

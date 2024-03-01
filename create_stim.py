@@ -178,7 +178,7 @@ for stimNr in range(450):
 	try:
 		os.mkdir('new_stims_'+sigV1)
 	except:
-		if os.path.isdir('new_stims')==False:
+		if os.path.isdir('new_stims_'+sigV1)==False:
 			print('could not create new_stims_'+sigV1+' folder')
 	np.save('new_stims_'+sigV1+'/img'+str(stimNr)+'.npy',img)
 	np.save('new_stims_'+sigV1+'/input'+str(stimNr)+'.npy',v1Act)

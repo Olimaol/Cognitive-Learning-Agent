@@ -34,7 +34,7 @@ figH=int(115*scaling)#mm
 figRes=1000#dpi
 
 ### Plot specific parameters
-folder='2020_09_21_oneTrial_T1'
+folder='2020_11_13_testoneTrial_T1'
 
 plotB=int(35*scaling)#mm
 plotH=int(20*scaling)#mm
@@ -83,7 +83,7 @@ axText5=plt.subplot2grid((figH,figB),(textX[4],textY[4]), colspan=textB[4], rows
 
 
 ### Load data
-sim=1
+sim=0
 rIT=np.clip(np.load('../data/'+folder+'/rIT'+str(sim)+'.npy'),0,None)
 rStrD1=np.clip(np.load('../data/'+folder+'/rSTRD1'+str(sim)+'.npy'),0,None)
 rStrD2=np.clip(np.load('../data/'+folder+'/rSTRD2'+str(sim)+'.npy'),0,None)
