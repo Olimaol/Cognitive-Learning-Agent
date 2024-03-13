@@ -59,7 +59,7 @@ if __name__ == '__main__':
 	#####################################################
 	###################  COMPILE   ######################
 	#####################################################
-	parallelAnz=10
+	parallelAnz=20
 	if(int(simID)%parallelAnz!=0):
 		compNr=int(simID)%parallelAnz
 	else:
