@@ -104,7 +104,7 @@ def changeParams(parametersatz):
 	StrD2GPe.K_burst=1.0
 	StrD2GPe.K_dip=0.4
 
-	STNSNr.threshold_post=-0.15
+	STNSNr.threshold_post=0.15
 	STNSNr.trace_pos_factor=1.0
 	STNSNr.regularization_threshold=2.6
 	STNSNr.tau=50
