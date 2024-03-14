@@ -96,7 +96,7 @@ if __name__ == '__main__':
 	distList=[]
 
     
-	folder='2020_11_13_testTrainingsphasen'+['T1','T1rev'][trainStimID]+'/'
+	folder='2024_03_14_TrainingNewSNr'+['T1','T1rev'][trainStimID]+'/'
 	try:
 		os.makedirs('data/'+folder[:-1])
 	except:

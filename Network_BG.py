@@ -148,18 +148,14 @@ DA_excitatory = Synapse(
         K_dip = 0.4 : projection
         DA_type= 1 : projection
         threshold_pre=0.0 : projection
-        threshold_post= -0.15 : projection
+        threshold_post= 0.15 : projection
         trace_pos_factor = 1.0 : projection
     """,
     psp = "w * pre.r",
     equations="""
         tau_alpha * dalpha/dt + alpha = pos(post.mp - regularization_threshold)
         dopa_sum = 2.0 * (post.sum(dopa) - baseline_dopa)
-
-        a = mean(post.r) - min(post.r) - 0.45 : postsynaptic
-        post_thresh = if (-a<threshold_post): -a else: threshold_post : postsynaptic
-
-        trace = pos(pre.r - mean(pre.r) - threshold_pre) * (post.r - mean(post.r) - post_thresh)
+        trace = pos(pre.r - mean(pre.r) - threshold_pre) * (post.r - min(post.r) - threshold_post)
         aux = if (trace<0.0): 1 else: 0
         dopa_mod = if (dopa_sum>0): K_burst * dopa_sum * ((1-trace_pos_factor)*aux+trace_pos_factor) else: K_dip * dopa_sum * aux
         delta = dopa_mod * trace - alpha * pos(trace)
@@ -187,11 +183,7 @@ DA_inhibitory = Synapse(
     equations="""
         tau_alpha * dalpha/dt + alpha = pos(-post.mp - regularization_threshold)
         dopa_sum = 2.0 * (post.sum(dopa) - baseline_dopa)
-
-        a = mean(post.r) - min(post.r) - 0.45 : postsynaptic
-        post_thresh = if (a>threshold_post) and (DA_type>0): a else: threshold_post : postsynaptic
-
-        trace = if (DA_type>0): pos(pre.r - mean(pre.r) - threshold_pre) * (mean(post.r) - post.r  - post_thresh) else: pos(pre.r - mean(pre.r) - threshold_pre) * (max(post.r) - post.r  - post_thresh)
+        trace = if (DA_type>0): pos(pre.r - mean(pre.r) - threshold_pre) * (min(post.r) + threshold_post - post.r) else: pos(pre.r - mean(pre.r) - threshold_pre) * (max(post.r) - post.r  - threshold_post)
         aux = if (trace>0): 1 else: 0
         dopa_mod = if (DA_type*dopa_sum>0): DA_type*K_burst*dopa_sum * ((1-trace_neg_factor)*aux+trace_neg_factor) else: aux*DA_type*K_dip*dopa_sum
         tau * dw/dt = dopa_mod * trace - alpha * pos(trace) : min=0

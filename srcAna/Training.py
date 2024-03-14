@@ -154,7 +154,7 @@ figH=105#mm
 figRes=500#dpi
 
 ### Plot specific parameters
-folder='2020_09_21_TrainingsphasenT1'
+folder='2024_03_14_TrainingNewSNrT1'
 
 simIDs=range(1,61)
 simAnz=len(simIDs)
