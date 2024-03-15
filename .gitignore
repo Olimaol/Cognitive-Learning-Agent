@@ -12,6 +12,7 @@ tex/
 results/
 *annarchy*/
 *data*/
+.vscode/
 
 # Everything containing "_old"
 *_old*
