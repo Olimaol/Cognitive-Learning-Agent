@@ -155,7 +155,7 @@ DA_excitatory = Synapse(
     equations="""
         tau_alpha * dalpha/dt + alpha = pos(post.mp - regularization_threshold)
         dopa_sum = 2.0 * (post.sum(dopa) - baseline_dopa)
-        trace = pos(pre.r - mean(pre.r) - threshold_pre) * (post.r - min(post.r) - threshold_post)
+        trace = pos(pre.r - mean(pre.r) - threshold_pre) * (post.r - min(post.r) - (mean(post.r) - min(post.r))/2)
         aux = if (trace<0.0): 1 else: 0
         dopa_mod = if (dopa_sum>0): K_burst * dopa_sum * ((1-trace_pos_factor)*aux+trace_pos_factor) else: K_dip * dopa_sum * aux
         delta = dopa_mod * trace - alpha * pos(trace)
@@ -183,7 +183,7 @@ DA_inhibitory = Synapse(
     equations="""
         tau_alpha * dalpha/dt + alpha = pos(-post.mp - regularization_threshold)
         dopa_sum = 2.0 * (post.sum(dopa) - baseline_dopa)
-        trace = if (DA_type>0): pos(pre.r - mean(pre.r) - threshold_pre) * (min(post.r) + threshold_post - post.r) else: pos(pre.r - mean(pre.r) - threshold_pre) * (max(post.r) - post.r  - threshold_post)
+        trace = if (DA_type>0): pos(pre.r - mean(pre.r) - threshold_pre) * (min(post.r) + (mean(post.r) - min(post.r))/2 - post.r) else: pos(pre.r - mean(pre.r) - threshold_pre) * (max(post.r) - (max(post.r) - mean(post.r))/2 - post.r)
         aux = if (trace>0): 1 else: 0
         dopa_mod = if (DA_type*dopa_sum>0): DA_type*K_burst*dopa_sum * ((1-trace_neg_factor)*aux+trace_neg_factor) else: aux*DA_type*K_dip*dopa_sum
         tau * dw/dt = dopa_mod * trace - alpha * pos(trace) : min=0
